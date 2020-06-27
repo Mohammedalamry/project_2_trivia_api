@@ -219,7 +219,8 @@ The APi will return four error types when requests fail:
    * Returns questions based on the Selected category a list of questions object, success value, the total number of questions, and the current category.   
    
    * Sample: `curl http://127.0.0.1:5000/categories/6/questions` 
-  ```js{
+  ```js
+  {
   "questions": [
     {
       "answer": "Brazil",
@@ -242,11 +243,11 @@ The APi will return four error types when requests fail:
 ```
 
 ```
-# POST/quizzes
+ # POST / quizzes
  
  * General: 
    *  This endpoint to create the quiz based on category or choose all categories and previous question parameters if provided. return one question object of random questions within the given category, if there are previous questions that are not one of the previous questions. 
-  * Sample: 
+   * Sample: 
   ```js
    curl  http://localhost:5000/quizzes -x POST -H "Content-Type: applicaion/json" -d  {"quiz_category":{"type":"Sports","id":6},
   "previous_questions":[10]} 
