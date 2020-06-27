@@ -218,7 +218,7 @@ The APi will return four error types when requests fail:
  * General:
    * Returns questions based on the Selected category a list of questions object, success value, the total number of questions, and the current category.   
    
-  * Sample: `curl http://127.0.0.1:5000/categories/6/questions` 
+   * Sample: `curl http://127.0.0.1:5000/categories/6/questions` 
   ```js{
   "questions": [
     {
@@ -238,9 +238,10 @@ The APi will return four error types when requests fail:
   ],
   "success": true,
   "total_questions": 2
-}```
+}
+```
 
-
+```
 # POST/quizzes
  
  * General: 
