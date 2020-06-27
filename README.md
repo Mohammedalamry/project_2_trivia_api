@@ -42,19 +42,21 @@ npm start
  dropdb trivia_test
  createdb trivia_test
  psql trivia_test < trivia.psql
-  python test_flaskr.py
-  ```
+ python test_flaskr.py 
+ ```
+ 
 # API Reference
 ## Getting Started
 * "Base URL At present this app can only be run locally is not hosted as a  base URL. The backend app is hosted at default,`http://127.0.0.1:5000/`, which is set as a proxy in the frontend configuration.
 * Authentication: This version of the application does not require authentication or API key."1
 # Error Handling
  Errors are returned as JSON object  in the following format:
- ```{
+  ```h {
      'success':False,
      'error':404,
      'message':" resource not found"
-   }```
+   }
+   ```
 The APi will return four error types when requests fail:
 * 404:Resource Not Found
 * 400: Bad Request
@@ -66,7 +68,7 @@ The APi will return four error types when requests fail:
    *Returns a list of category objects, success value.
 * Sample: `curlhttp://127.0.0.1:5000/categories` 
 
- ```  {
+   ```js  {
   "categories": {
     "1": "Science",
     "2": "Art",
@@ -74,16 +76,16 @@ The APi will return four error types when requests fail:
     "4": "History",
     "5": "Entertainment",
     "6": "Sports"
-  },
+    },
   "success": true
-  }```
+   }```
 
 # GET/Questions
 * General:
    * Returns a list of category objects, a list of questions object, success value, total number of questions, and current category.
    * Returns a paginated in groups of 10 questions.
-* Sample: `curlhttp://127.0.0.1:5000/questions?page=1` 
-``` {
+* Sample: ```curlhttp://127.0.0.1:5000/questions?page=1``` 
+```js {
   "categories": {
     "1": "Science",
     "2": "Art",
@@ -167,7 +169,7 @@ The APi will return four error types when requests fail:
   ],
   "success": true,
   "total_questions": 20
-} ```
+  } ````
 
 # DELETE /questions/(id)
 * General:
