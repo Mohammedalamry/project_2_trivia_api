@@ -160,7 +160,7 @@ def create_app(test_config=None):
      question= Question(question=new_question,answer=new_answer,difficulty=new_difficulty,category=new_category)
      question.insert()
      print(new_question) 
-     return jsonify({'success':True})
+     return jsonify({'status_code':200,'success':True})
      
   #  finally:
     #  print(data['question'], data.answer,data.difficulty, data.category ,sep='\n')
@@ -189,8 +189,7 @@ def create_app(test_config=None):
       return jsonify({
         'questions':searchTerm_list ,
          'total_questions':len(searchTerm_list),
-         'current_category':'Sports',
-        'succse':'search'  })
+        'success':True  })
     except:
       abort(405)
     finally:
@@ -205,7 +204,9 @@ def create_app(test_config=None):
   # Create a GET endpoint to get questions based on category. 
   @app.route('/categories/<int:id_cat>/questions')
   def questions_based_on_category(id_cat):
-    try:  
+    try:
+       cirr = Category.query.filter(id_cat == Category.id).first() 
+        
        print(id_cat)
        questionscat= Question.query.filter(id_cat == Question.category).all()
        if len(questionscat)==0:
@@ -220,8 +221,7 @@ def create_app(test_config=None):
        return jsonify({
        'questions':questions_list,
        'total_questions':len(questions_list),
-       'current_category':'Sports',
-       'sucess':True })
+       'success':True })
   # TEST: In the "List" tab / main screen, clicking on one of the 
   # categories in the left column will cause only questions of that 
   # category to be shown. 

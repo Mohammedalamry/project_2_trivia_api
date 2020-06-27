@@ -100,7 +100,7 @@ class TriviaTestCase(unittest.TestCase):
         res = self.client().get('/categories/5/questions')
         data = json.loads(res.data)
         self.assertEqual(res.status_code,200)
-        self.assertEqual(data['sucess'],True)
+        self.assertEqual(data['success'],True)
         self.assertTrue(data['total_questions'])
         self.assertTrue(len(data['questions']))
         self.assertTrue(data['questions'])
