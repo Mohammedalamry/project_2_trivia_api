@@ -51,7 +51,8 @@ npm start
 * Authentication: This version of the application does not require authentication or API key."1
 # Error Handling
  Errors are returned as JSON object  in the following format:
-  ```h {
+  ```js 
+   {
      'success':False,
      'error':404,
      'message':" resource not found"
@@ -85,7 +86,8 @@ The APi will return four error types when requests fail:
    * Returns a list of category objects, a list of questions object, success value, total number of questions, and current category.
    * Returns a paginated in groups of 10 questions.
 * Sample: ```curlhttp://127.0.0.1:5000/questions?page=1``` 
-```js {
+```js
+ {
   "categories": {
     "1": "Science",
     "2": "Art",
@@ -169,7 +171,8 @@ The APi will return four error types when requests fail:
   ],
   "success": true,
   "total_questions": 20
-  } ````
+  } 
+  ```
 
 # DELETE /questions/(id)
 * General:
@@ -180,15 +183,22 @@ The APi will return four error types when requests fail:
 # POST/question
 * General:
    *   Create a new question using the submitted Question, Answer, Difficulty, Category.   return success value.
-* Sample: `curl  http://127.0.0.1:5000/questions/15` -x POST -H "Content-Type: applicaion/json" -d {question: "Which dung beetle was worshipped by the ancient Egyptians?", answer:"Scarab" ,difficulty:4, category:4}
-  `{'status_code':200,'success':True}`   
+* Sample:
+ ```js 
+ curl  http://127.0.0.1:5000/questions/15 -x POST -H "Content-Type: applicaion/json" -d {question: "Which dung beetle was worshipped by the ancient Egyptians?", answer:"Scarab" ,difficulty:4, category:4}
+ ```
+  ```js
+   {'status_code':200,'success':True}
+   ```   
 # POST/questions/search
 * General:
    *   in this Endpoint, you can use a submitted search. Search by any phrase. will return the search result depending on what you write a. return questions objects,total_questions, and success value.
-* Sample: `curl  http://127.0.0.1:5000/questions/search` -x POST -H "Content-Type: applicaion/json" -d {
-     "searchTerm":"Taj"
-}
-```{
+* Sample:
+ ```js 
+ scurl  http://127.0.0.1:5000/questions/search -x POST -H "Content-Type: applicaion/json" -d { "searchTerm":"Taj"} 
+```
+
+```js{
   "questions": [
     {
       "answer": "Agra",
@@ -209,7 +219,7 @@ The APi will return four error types when requests fail:
    * Returns questions based on the Selected category a list of questions object, success value, the total number of questions, and the current category.   
    
   * Sample: `curl http://127.0.0.1:5000/categories/6/questions` 
-  ```{
+  ```js{
   "questions": [
     {
       "answer": "Brazil",
@@ -235,9 +245,12 @@ The APi will return four error types when requests fail:
  
  * General: 
    *  This endpoint to create the quiz based on category or choose all categories and previous question parameters if provided. return one question object of random questions within the given category, if there are previous questions that are not one of the previous questions. 
-  * Sample: ```curl  http://localhost:5000/quizzes -x POST -H "Content-Type: applicaion/json" -d  {"quiz_category":{"type":"Sports","id":6},
-  "previous_questions":[10]} ```
-``` {
+  * Sample: 
+  ```js
+   curl  http://localhost:5000/quizzes -x POST -H "Content-Type: applicaion/json" -d  {"quiz_category":{"type":"Sports","id":6},
+  "previous_questions":[10]} 
+  ```
+```js {
   "question": {
     "answer": "Uruguay",
     "category": 6,
