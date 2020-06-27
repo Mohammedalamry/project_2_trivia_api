@@ -3,6 +3,7 @@ __pycache__
 venv
 ven
 .venv
+node_modules
 # OS generated files #
 ######################
 .DS_Store
